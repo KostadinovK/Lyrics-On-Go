@@ -1,0 +1,20 @@
+{
+  "name": "Lyrics-On-Go",
+  "version": "1.0.0",
+  "description": "A simple SPA for lyrics sharing between musicians",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KostadinovK/Lyrics-On-Go.git"
+  },
+  "keywords": [],
+  "author": "Kostadin Kostadinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KostadinovK/Lyrics-On-Go/issues"
+  },
+  "homepage": "https://github.com/KostadinovK/Lyrics-On-Go#readme"
+}
