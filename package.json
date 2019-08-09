@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/KostadinovK/Lyrics-On-Go/issues"
   },
-  "homepage": "https://github.com/KostadinovK/Lyrics-On-Go#readme"
+  "homepage": "https://github.com/KostadinovK/Lyrics-On-Go#readme",
+  "dependencies": {
+    "handlebars": "^4.1.2",
+    "jquery": "^3.4.1",
+    "sammy": "^0.7.6"
+  }
 }
