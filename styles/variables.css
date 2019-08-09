@@ -1,0 +1,7 @@
+:root{
+    --site-main-color: rgb(29, 161, 242);
+    --site-second-color: rgb(255, 255, 255);
+    --site-third-color: rgb(0, 0, 0);
+    --site-content-font: 'PT Sans';
+    --site-headings-font: 'PT Serif';
+}
