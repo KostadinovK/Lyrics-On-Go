@@ -29,11 +29,11 @@ form input{
     outline: none;
 }
 
-form input:focus{
+form input[type="text"]:focus, form input[type="password"]:focus{
     border: 2px solid var(--site-main-color);
 }
 
-form .username{
+form .gender{
     margin-bottom: 2rem;
 }
 
@@ -51,6 +51,7 @@ form .username{
 .form-link a:hover{
     text-decoration: underline;
 }
+
 
 form input[type="submit"]{
     background: var(--site-main-color);
