@@ -1,0 +1,29 @@
+.post-details{
+    width: 60%;
+    margin: 0 auto;
+    padding: 6rem 0;
+}
+
+.post-details .header{
+    display: flex;
+    align-items: center;
+}
+
+.post-details .avatar{
+    margin-right: 1rem;
+    max-width: 64px;
+}
+
+.post-details img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.post-details .content{
+    flex-wrap: wrap;
+}
+
+.post-details .content h2{
+    margin-bottom: 4rem;
+}
