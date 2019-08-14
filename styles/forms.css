@@ -1,0 +1,65 @@
+form{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 6rem 0;
+}
+
+form h2{
+    margin-bottom: 2rem;
+    color: var(--site-main-color);
+}
+
+form i{
+    color: var(--site-main-color);
+}
+
+form p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input{
+    flex: 0 0 30%;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+form input:focus{
+    border: 2px solid var(--site-main-color);
+}
+
+.username{
+    margin-bottom: 2rem;
+}
+
+.form-link{
+    color: var(--site-third-color);
+    margin-top: 1rem;
+}
+
+.form-link a{
+    text-decoration: none;
+    margin-left: 1rem;
+    color: var(--site-main-color);
+}
+
+.form-link a:hover{
+    text-decoration: underline;
+}
+
+form input[type="submit"]{
+    background: var(--site-main-color);
+    color: var(--site-second-color);
+    border: 1px solid var(--site-main-color);
+    margin-top: 1rem;
+    width: 40%;
+}
+
+form input[type="submit"]:hover{
+    cursor: pointer;
+}
