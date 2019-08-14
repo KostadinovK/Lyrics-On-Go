@@ -9,6 +9,7 @@
     flex: 0 0 30%;
     margin-right: auto;
     font-size: 2rem;
+    opacity: 0;
 }
 
 nav{
@@ -32,6 +33,7 @@ nav ul li{
     flex: 1 1 25%;
     text-align: center;
     position: relative;
+    opacity: 0;
 }
 
 nav ul li a{
