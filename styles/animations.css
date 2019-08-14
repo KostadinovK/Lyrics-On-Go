@@ -44,3 +44,7 @@ nav ul li:nth-child(7){animation-delay: 2.3s}
 nav ul li:nth-child(8){animation-delay: 2.6s}
 nav ul li:nth-child(9){animation-delay: 2.9s}
 
+nav ul li:hover a::after{
+    animation: fadeIn 0.5s linear;
+    animation-fill-mode: both;
+}

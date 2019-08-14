@@ -62,4 +62,6 @@ form input[type="submit"]{
 
 form input[type="submit"]:hover{
     cursor: pointer;
+    color: var(--site-main-color);
+    background: var(--site-second-color);
 }
