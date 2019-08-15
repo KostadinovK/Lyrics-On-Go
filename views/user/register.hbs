@@ -1,4 +1,5 @@
-<form action="" method="POST">
+{{>header}}
+<form action="#/register" method="POST">
     <h2>Register</h2>
     <p class="username">
         <label for="username"><i class="fas fa-user"></i></label>
@@ -16,6 +17,7 @@
         <label for="rePassword"><i class="fas fa-key"></i></label>
         <input type="password" name="rePassword" placeholder="Repeat Password">
     </p>
-    <p class="form-link">Already have an account? <a href="">Login</a></p>
+    <p class="form-link">Already have an account? <a href="#/login">Login</a></p>
     <input type="submit" value="Register">
 </form>
+{{>footer}}

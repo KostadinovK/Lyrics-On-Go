@@ -3,6 +3,13 @@ const app = Sammy('#main', function(){
 
     /*Home*/
     this.get('#/home', homeController.getHome);
+
+    /*Register*/
+    this.get('#/register', userController.getRegister);
+    this.post('#/register', userController.postRegister);
+
+    /*Login*/
+    this.get('#/login', userController.getLogin);
 });
 
 (() => {
