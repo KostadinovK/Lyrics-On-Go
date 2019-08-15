@@ -36,6 +36,15 @@ nav ul li{
     opacity: 0;
 }
 
+.notLoggedIn{
+    flex: 0 0 50%;
+    margin: 0 auto;
+}
+
+.authentication{
+    flex: 0 0 50%;
+}
+
 nav ul li a{
     font-size: 1.2rem;
 }
