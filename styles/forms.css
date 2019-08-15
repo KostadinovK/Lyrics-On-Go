@@ -2,7 +2,7 @@ form{
     width: 50%;
     margin: 0 auto;
     text-align: center;
-    padding: 6rem 0;
+    padding: 6rem 0rem;
 }
 
 form h2{
@@ -29,7 +29,14 @@ form input{
     outline: none;
 }
 
-form input[type="text"]:focus, form input[type="password"]:focus{
+form textarea{
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    padding: 0.5rem;
+}
+
+form input[type="text"]:focus, form input[type="password"]:focus, form textarea:focus{
     border: 2px solid var(--site-main-color);
 }
 
@@ -65,4 +72,25 @@ form input[type="submit"]:hover{
     cursor: pointer;
     color: var(--site-main-color);
     background: var(--site-second-color);
+}
+
+.story-form p{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.story-form .title{
+    margin-bottom: 2rem;
+}
+
+.story-form label{
+    flex: 0 0 100%;
+    font-size: 1.5rem;
+    color: var(--site-main-color);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.story-form input[type="text"]{
+    flex: 0 0 100%;
 }
