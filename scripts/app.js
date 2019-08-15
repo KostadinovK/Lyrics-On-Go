@@ -3,6 +3,7 @@ const app = Sammy('#main', function(){
 
     this.get('#/home', function(context){
         this.partial('./views/home/home.hbs');
+        
     });
 });
 
