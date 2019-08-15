@@ -1,13 +1,16 @@
 <header class="site-header">
-    <a href="" class="logo">Story-On-Go</a>
+    <a href="#/home" class="logo">Story-On-Go</a>
     <nav>
         <ul>
+            {{#if loggedIn}}
             <li><a href=""><i class="fas fa-rss"></i> Feed</a></li>
             <li><a href=""><i class="fas fa-clipboard"></i> Post A Story</a></li>
             <li><a href=""><i class="fas fa-user"></i> Profile</a></li>
             <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            {{else}}
             <li><a href=""><i class="fas fa-sign-in-alt"></i> Register</a></li>
             <li><a href=""><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            {{/if}}
         </ul>
     </nav>
 </header>
