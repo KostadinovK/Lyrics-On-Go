@@ -20,7 +20,7 @@ const requester = function(){
     }
 
     const makeRequest = function (url, headers) {
-        headers.header['Content-type'] = 'application/json';
+        headers.headers['Content-type'] = 'application/json';
         return fetch(url, headers);
     }
 

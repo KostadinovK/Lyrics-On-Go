@@ -42,7 +42,7 @@ const userController = function(){
         if(!isDataValid(context.params)){
             return;
         }
-
+        
         userService.register(context.params)
         .then(response => response.json())
         .then(data => {
