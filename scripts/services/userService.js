@@ -56,7 +56,7 @@ const userService = function(){
 
         const headers = {
             headers: {
-                Authorization: `Kinvey ${storage.getData('authToken')}`
+                Authorization: `Kinvey ${JSON.parse(storage.getData('authToken'))}`
             },
             body: JSON.stringify(user)
         }

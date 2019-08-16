@@ -3,7 +3,6 @@ const storage = function(){
     const appKey = 'kid_ryjXFiM4r';
     const appSecret = '14ca8fcd822645268ecc71f3aa2391ca';
 
-    const usersCollection = 'users';
     const dataCollection = 'stories';
 
     const saveData  = function(key, value){value
@@ -31,7 +30,6 @@ const storage = function(){
     return {
         appKey,
         appSecret,
-        usersCollection,
         dataCollection,
         saveData,
         getData,

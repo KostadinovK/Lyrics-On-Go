@@ -14,6 +14,10 @@ const app = Sammy('#main', function(){
 
     /*Logout*/
     this.get('#/logout', userController.logout);
+
+    /*Create a Story */
+    this.get('#/post', storyController.getCreate);
+    this.post('#/post', storyController.postCreate);
     
 });
 
