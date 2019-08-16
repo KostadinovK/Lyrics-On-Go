@@ -4,7 +4,7 @@ const userService = function(){
 
     const register = function(params){
         const url = baseUrl;
-        const user = {
+        let user = {
             username: params.username,
             password: params.password,
             gender: params.gender
@@ -39,35 +39,35 @@ const userService = function(){
         return requester.post(url, headers);
     }
 
-    // const logout = function(){
-    //     //const url = baseUrl + '/_logout';
+    const logout = function(){
+        const url = baseUrl + '/_logout';
+        
+        let headers = {
+            headers: {
+                Authorization: `Kinvey ${storage.getData('authToken')}`
+            }
+        };
 
-    //     const headers = {
-    //         header: {
-    //             Authorization = `Kinvey ${storage.getData('authToken')}`
-    //         }
-    //     };
+        return requester.post(url, headers);
+    }
 
-    //     return requester.post(url, headers);
-    // }
+    const update = function(user){
+        const url = baseUrl + `/${JSON.parse(storage.getData('userInfo'))._id}`;
 
-    // const update = function(user){
-    //     //const url = baseUrl + `/${JSON.parse(storage.getData('userInfo'))._id}`;
+        const headers = {
+            headers: {
+                Authorization: `Kinvey ${storage.getData('authToken')}`
+            },
+            body: JSON.stringify(user)
+        }
 
-    //     const headers = {
-    //         header: {
-    //             Authorization = `Kinvey ${storage.getData('authToken')}`
-    //         },
-    //         body: JSON.stringify(user)
-    //     }
-
-    //     return requester.put(url, headers);
-    // }
+        return requester.put(url, headers);
+    }
 
     return {
         register,
         login,
-        //logout,
-        //update
+        logout,
+        update
     };
 }();

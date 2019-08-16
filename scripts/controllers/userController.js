@@ -60,10 +60,20 @@ const userController = function(){
         });
     }
 
+    const logout = function(context){
+        userService.logout()
+        .then(response => response.json())
+        .then(data => {
+            storage.deleteUser();
+            context.redirect('#/home');
+        });
+    }
+
     return {
         getRegister,
         getLogin,
         postRegister,
-        postLogin
+        postLogin,
+        logout
     };
 }();
