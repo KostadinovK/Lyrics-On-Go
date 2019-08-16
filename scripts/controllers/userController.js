@@ -51,9 +51,19 @@ const userController = function(){
         });
     }
 
+    const postLogin = function(context){
+        userService.login(context.params)
+        .then(response => response.json())
+        .then(data => {
+            storage.saveUser(data);
+            context.redirect('#/home');
+        });
+    }
+
     return {
         getRegister,
         getLogin,
-        postRegister
+        postRegister,
+        postLogin
     };
 }();

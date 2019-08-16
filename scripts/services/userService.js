@@ -23,21 +23,21 @@ const userService = function(){
         return requester.post(url, headers);
     }
 
-    // const login = function(params){
-    //     //const url = baseUrl + '/login';
+    const login = function(params){
+        const url = baseUrl + '/login';
 
-    //     const auth = btoa(`${params.username}:${params.password}`);
-    //     const authString = `Basic ${auth}`;
+        const auth = btoa(`${params.username}:${params.password}`);
+        const authString = `Basic ${auth}`;
 
-    //     const headers = {
-    //         header: {
-    //             Authorization: authString
-    //         },
-    //         body: JSON.stringify({...params})
-    //     };
+        const headers = {
+            headers: {
+                Authorization: authString
+            },
+            body: JSON.stringify({...params})
+        };
 
-    //     return requester.post(url, headers);
-    // }
+        return requester.post(url, headers);
+    }
 
     // const logout = function(){
     //     //const url = baseUrl + '/_logout';
@@ -66,7 +66,7 @@ const userService = function(){
 
     return {
         register,
-        //login,
+        login,
         //logout,
         //update
     };
