@@ -61,6 +61,12 @@
     text-decoration: underline;
 }
 
+.words{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
 .metadata {
     display: flex;
     flex-wrap: wrap;

@@ -88,6 +88,7 @@ const userController = function(){
                 story.isCreatorMale = helper.isGenderMale(story.creatorGender);
                 story.likesCount = story.likes.length;
                 story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
+                story.wordsCount = story.content.split(' ').length;
             }
         });
 
