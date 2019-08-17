@@ -27,9 +27,9 @@ const storyController = function(){
         .then(response => response.json())
         .then(stories => {
             context.posts = stories.filter(s => s._acl.creator !== JSON.parse(storage.getData('userInfo'))._id);
-            for (const story of stories) {
+            for (let story of stories) {
                 story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
-                story.isCreatorMale = helper.isStoryCreatorMale(story.creatorGender);
+                story.isCreatorMale = helper.isGenderMale(story.creatorGender);
                 story.likesCount = story.likes.length;
                 story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
             }

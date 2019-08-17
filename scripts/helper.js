@@ -45,7 +45,7 @@ const helper = function(){
         return Math.ceil(diffTime) + ' days';
     }
 
-    const isStoryCreatorMale = function(gender){
+    const isGenderMale = function(gender){
         if(gender !== 'Male' && gender !== 'male' && gender !== 'M' && gender !== 'm'){
             return false;
         }
@@ -56,6 +56,6 @@ const helper = function(){
     return {
         getCurrentDate,
         calculateDateDifference,
-        isStoryCreatorMale
+        isGenderMale
     };
 }();
