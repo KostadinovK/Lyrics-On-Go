@@ -1,4 +1,11 @@
 const storyController = function(){
+    
+    const splitStoryContentInParagraphs = function(story){
+        let paragraphs = story.content.split('\n').filter(p => p.length > 1);
+        
+        return paragraphs.reduce((text, p) => text += ('<p>' + p + '</p>'), "");
+    }
+
     const getCreate = function(context){
         const loggedIn = storage.getData('userInfo') !== null;
         context.loggedIn = loggedIn;
@@ -46,9 +53,35 @@ const storyController = function(){
         });
     }
 
+    const getDetails = async function(context){
+        const loggedIn = storage.getData('userInfo') !== null;
+        context.loggedIn = loggedIn;
+
+        await storyService.loadStory(context.params.id)
+        .then(response => response.json())
+        .then(story => {
+            context.story = story;
+            story.content = splitStoryContentInParagraphs(story);
+            story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
+            story.isCreatorMale = helper.isGenderMale(story.creatorGender);
+            story.likesCount = story.likes.length;
+            story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
+            story.wordsCount = story.content.split(' ').length;
+        });
+
+        await context.loadPartials({
+            header: './views/common/header.hbs',
+            footer: './views/common/footer.hbs',
+        })
+        .then(function(){
+            this.partial('./views/posts/details.hbs');
+        });
+    }
+
     return {
         getCreate,
         postCreate,
-        getAllForFeed
+        getAllForFeed,
+        getDetails
     };
 }();

@@ -25,5 +25,21 @@
 }
 
 .post-details .content h2{
+    flex: 0 0 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.post-details .content p{
+    flex: 0 0 100%;
+}
+
+.post-details .content .story{
+    line-height: 1.5;
+    font-size: 1.2rem;
+}
+
+.words{
     margin-bottom: 4rem;
+    font-style: italic;
 }

@@ -24,6 +24,9 @@ const app = Sammy('#main', function(){
 
     /*Feed*/
     this.get('#/feed', storyController.getAllForFeed);
+
+    /*Story Details*/
+    this.get('#/stories/:id', storyController.getDetails);
     
 });
 

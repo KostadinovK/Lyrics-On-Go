@@ -48,8 +48,21 @@ const storyService = function(){
         return requester.get(url, headers);
     }
 
+    const loadStory = function(storyId){
+        const url = baseUrl + `/${storyId}`;
+
+        const headers = {
+            headers: {
+                Authorization: `Kinvey ${JSON.parse(storage.getData('authToken'))}`
+            }
+        }
+
+        return requester.get(url, headers);
+    }
+
     return {
         create,
-        loadAll
+        loadAll,
+        loadStory
     }
 }();
