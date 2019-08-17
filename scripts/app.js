@@ -18,6 +18,9 @@ const app = Sammy('#main', function(){
     /*Create a Story */
     this.get('#/post', storyController.getCreate);
     this.post('#/post', storyController.postCreate);
+
+    /*Feed*/
+    this.get('#/feed', storyController.getAllForFeed);
     
 });
 

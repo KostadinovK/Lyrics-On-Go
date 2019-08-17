@@ -21,7 +21,9 @@ const storyService = function(){
             title: params.title,
             content: params.content,
             likes: [],
-            date: helper.getCurrentDate()
+            date: helper.getCurrentDate(),
+            creatorUsername: JSON.parse(storage.getData('userInfo')).username,
+            creatorGender: JSON.parse(storage.getData('userInfo')).gender
         }
 
         const headers = {
@@ -31,10 +33,23 @@ const storyService = function(){
             body: JSON.stringify(story)
         }
         
-        requester.post(url, headers);
+        return requester.post(url, headers);
+    }
+
+    const loadAll = function(){
+        const url = baseUrl;
+
+        const headers = {
+            headers: {
+                Authorization: `Kinvey ${JSON.parse(storage.getData('authToken'))}`
+            }
+        }
+        
+        return requester.get(url, headers);
     }
 
     return {
-        create
+        create,
+        loadAll
     }
 }();
