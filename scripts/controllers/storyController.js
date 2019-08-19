@@ -78,10 +78,20 @@ const storyController = function(){
         });
     }
 
+    const getDelete = function(context){
+
+        storyService.deleteStory(context.params.id)
+        .then(response => response.json())
+        .then(data => {
+            context.redirect('#/profile');
+        });
+    }
+
     return {
         getCreate,
         postCreate,
         getAllForFeed,
-        getDetails
+        getDetails,
+        getDelete
     };
 }();

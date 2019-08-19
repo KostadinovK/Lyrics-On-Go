@@ -27,7 +27,9 @@ const app = Sammy('#main', function(){
 
     /*Story Details*/
     this.get('#/stories/:id', storyController.getDetails);
-    
+
+    /*Delete Story*/
+    this.get('#/stories/:id/delete', storyController.getDelete);
 });
 
 (() => {

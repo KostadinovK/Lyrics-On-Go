@@ -60,9 +60,22 @@ const storyService = function(){
         return requester.get(url, headers);
     }
 
+    const deleteStory = function(storyId){
+        const url = baseUrl + `/${storyId}`;
+
+        const headers = {
+            headers: {
+                Authorization: `Kinvey ${JSON.parse(storage.getData('authToken'))}`
+            }
+        }
+
+        return requester.del(url, headers);
+    }
+
     return {
         create,
         loadAll,
-        loadStory
+        loadStory,
+        deleteStory
     }
 }();
