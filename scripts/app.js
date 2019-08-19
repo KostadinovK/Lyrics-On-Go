@@ -34,6 +34,9 @@ const app = Sammy('#main', function(){
     /*Edit Story*/
     this.get('#/stories/:id/edit', storyController.getEdit);
     this.post('#/stories/:id/edit', storyController.postEdit);
+
+    /*Like Story*/
+    this.get('#/stories/:id/like', storyController.like);
 });
 
 (() => {

@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="metadata">
-        <p><a href=""><i class="far fa-heart"></i></a> <span class="likes">{{story.likesCount}}</span></p>
+        <p><a href="#/stories/{{story._id}}/like"><i class="{{#if story.notLiked}}far{{else}}fas{{/if}} fa-heart"></i></a> <span class="likes">{{story.likesCount}}</span></p>
         <p class="time">{{story.timeAgo}}</p>
     </div>
     {{#if story.isCreator}}

@@ -37,6 +37,7 @@ const storyController = function(){
             for (let story of stories) {
                 story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
                 story.isCreatorMale = helper.isGenderMale(story.creatorGender);
+                story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo')).username);
                 story.likesCount = story.likes.length;
                 story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
                 story.wordsCount = story.content.split(' ').length;
@@ -64,6 +65,7 @@ const storyController = function(){
             story.content = splitStoryContentInParagraphs(story);
             story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
             story.isCreatorMale = helper.isGenderMale(story.creatorGender);
+            story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo')).username);
             story.likesCount = story.likes.length;
             story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
             story.wordsCount = story.content.split(' ').length;
@@ -120,6 +122,28 @@ const storyController = function(){
         });
     }
 
+    const like = async function(context){
+        let story = {};
+
+        await storyService.loadStory(context.params.id)
+        .then(response => response.json())
+        .then(data => story = data);
+        
+        const username = JSON.parse(storage.getData('userInfo')).username;
+
+        if(story.likes.includes(username)){
+            story.likes = story.likes.filter(u => u !== username);
+        }else{
+            story.likes.push(username);
+        }
+        console.log(story.likes);
+        storyService.edit(context.params.id, story)
+        .then(response => response.json())
+        .then(data => {
+            context.redirect(`#/stories/${context.params.id}`);
+        });
+    }
+
     return {
         getCreate,
         postCreate,
@@ -127,6 +151,7 @@ const storyController = function(){
         getDetails,
         getDelete,
         getEdit,
-        postEdit
+        postEdit,
+        like
     };
 }();

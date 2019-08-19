@@ -17,7 +17,7 @@
     <p>{{wordsCount}} Words</p>
 </div>
 <div class="metadata">
-    <p><a href=""><i class="far fa-heart"></i></a> <span class="likes">{{likesCount}}</span></p>
+    <p><a href="#/stories/{{_id}}/like"><i class="{{#if notLiked}}far{{else}}fas{{/if}} fa-heart"></i></a> <span class="likes">{{likesCount}}</span></p>
     <p class="time">{{timeAgo}}</p>
 </div>
 {{#if isCreator}}

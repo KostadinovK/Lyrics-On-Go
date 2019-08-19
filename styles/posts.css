@@ -130,3 +130,7 @@
     background: var(--site-second-color);
     color: var(--site-red-color);
 }
+
+.liked{
+    color: red;
+}
