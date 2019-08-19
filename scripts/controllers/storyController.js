@@ -136,7 +136,7 @@ const storyController = function(){
         }else{
             story.likes.push(username);
         }
-        console.log(story.likes);
+        
         storyService.edit(context.params.id, story)
         .then(response => response.json())
         .then(data => {
