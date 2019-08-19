@@ -87,11 +87,46 @@ const storyController = function(){
         });
     }
 
+    const getEdit = async function(context){
+        context.loggedIn = storage.getData('userInfo') !== null;
+
+        await storyService.loadStory(context.params.id)
+        .then(response => response.json())
+        .then(story => context.story = story);
+    
+        context.loadPartials({
+            header: './views/common/header.hbs',
+            footer: './views/common/footer.hbs'
+        }).then(function(){
+            this.partial('./views/posts/edit.hbs');
+        });
+    }
+
+    const postEdit = function(context){
+        
+        const story = {
+            title: context.params.title,
+            content: context.params.content,
+            likes: helper.formatStoryLikesString(context.params.likes),
+            date: context.params.date,
+            creatorUsername: context.params.username,
+            creatorGender: context.params.gender
+        }
+       
+        storyService.edit(context.params.id, story)
+        .then(response => response.json())
+        .then(data => {
+            context.redirect('#/profile');
+        });
+    }
+
     return {
         getCreate,
         postCreate,
         getAllForFeed,
         getDetails,
-        getDelete
+        getDelete,
+        getEdit,
+        postEdit
     };
 }();

@@ -53,9 +53,19 @@ const helper = function(){
         return true;
     }
 
+    const formatStoryLikesString = function(likesString){
+        
+        if(likesString.length < 2){
+            return [];
+        }
+
+        return likesString.split(',');
+    }
+
     return {
         getCurrentDate,
         calculateDateDifference,
-        isGenderMale
+        isGenderMale,
+        formatStoryLikesString
     };
 }();

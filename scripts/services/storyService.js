@@ -72,10 +72,29 @@ const storyService = function(){
         return requester.del(url, headers);
     }
 
+    const edit = function(storyId, story){
+
+        if(!isDataValid(story)){
+            return;
+        }
+
+        const url = baseUrl + `/${storyId}`;
+
+        const headers = {
+            headers: {
+                Authorization: `Kinvey ${JSON.parse(storage.getData('authToken'))}`
+            },
+            body: JSON.stringify(story)
+        }
+
+        return requester.put(url, headers);
+    }
+
     return {
         create,
         loadAll,
         loadStory,
-        deleteStory
+        deleteStory,
+        edit
     }
 }();

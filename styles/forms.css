@@ -94,3 +94,7 @@ form input[type="submit"]:hover{
 .story-form input[type="text"]{
     flex: 0 0 100%;
 }
+
+.invisible{
+    display: none;
+}

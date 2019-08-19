@@ -42,4 +42,5 @@
 .words{
     margin-bottom: 4rem;
     font-style: italic;
+    flex: 0 0 100%;
 }

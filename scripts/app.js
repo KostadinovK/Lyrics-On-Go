@@ -30,6 +30,10 @@ const app = Sammy('#main', function(){
 
     /*Delete Story*/
     this.get('#/stories/:id/delete', storyController.getDelete);
+
+    /*Edit Story*/
+    this.get('#/stories/:id/edit', storyController.getEdit);
+    this.post('#/stories/:id/edit', storyController.postEdit);
 });
 
 (() => {
