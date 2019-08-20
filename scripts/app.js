@@ -39,7 +39,7 @@ const app = Sammy('#main', function(){
     this.get('#/stories/:id/like', storyController.like);
 
     /*Display All Story Likes*/
-    this.get('#/stories/:id/likes', storyController.getLikes);
+    this.get('#/stories/:id/likes', postDataController.getLikes);
 });
 
 (() => {
