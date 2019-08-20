@@ -22,6 +22,7 @@ section.comments ul li{
     border-top: 2px solid var(--site-main-color);
     border-bottom: 2px solid var(--site-main-color);
     border-radius: 20px;
+    padding: 1rem;
 }
 
 section.comments ul li:not(:last-child){
