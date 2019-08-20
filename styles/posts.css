@@ -91,6 +91,12 @@
 
 .metadata i{
     color: var(--site-red-color);
+    margin-right: 2rem;
+}
+
+.metadata a{
+    text-decoration: none;
+    color: var(--site-third-color);
 }
 
 .controls{

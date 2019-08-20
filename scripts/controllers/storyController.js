@@ -37,7 +37,7 @@ const storyController = function(){
             for (let story of stories) {
                 story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
                 story.isCreatorMale = helper.isGenderMale(story.creatorGender);
-                story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo')).username);
+                story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo'))._id);
                 story.likesCount = story.likes.length;
                 story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
                 story.wordsCount = story.content.split(' ').length;
@@ -65,7 +65,7 @@ const storyController = function(){
             story.content = splitStoryContentInParagraphs(story);
             story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
             story.isCreatorMale = helper.isGenderMale(story.creatorGender);
-            story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo')).username);
+            story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo'))._id);
             story.likesCount = story.likes.length;
             story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
             story.wordsCount = story.content.split(' ').length;
@@ -129,18 +129,42 @@ const storyController = function(){
         .then(response => response.json())
         .then(data => story = data);
         
-        const username = JSON.parse(storage.getData('userInfo')).username;
+        const id = JSON.parse(storage.getData('userInfo'))._id;
 
-        if(story.likes.includes(username)){
-            story.likes = story.likes.filter(u => u !== username);
+        if(story.likes.includes(id)){
+            story.likes = story.likes.filter(ID => ID !== id);
         }else{
-            story.likes.push(username);
+            story.likes.push(id);
         }
         
         storyService.edit(context.params.id, story)
         .then(response => response.json())
         .then(data => {
             context.redirect(`#/stories/${context.params.id}`);
+        });
+    }
+
+    const getLikes = async function(context){
+        let story = {};
+
+        await storyService.loadStory(context.params.id)
+        .then(response => response.json())
+        .then(data => story = data);
+
+        context.likeViews = [];
+
+        for (const id of story.likes) {
+            let {gender, username} = await userService.getUserDataFromId(id);
+            let isMale = helper.isGenderMale(gender);
+            context.likeViews.push({isMale, username});
+        }
+       
+        console.log(context.likeViews);
+
+        context.loadPartials({
+            likeView: './views/user/likeView.hbs'
+        }).then(function(){
+            this.partial('./views/posts/likes.hbs');
         });
     }
 
@@ -152,6 +176,7 @@ const storyController = function(){
         getDelete,
         getEdit,
         postEdit,
-        like
+        like,
+        getLikes
     };
 }();

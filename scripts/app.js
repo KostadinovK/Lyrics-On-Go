@@ -37,6 +37,9 @@ const app = Sammy('#main', function(){
 
     /*Like Story*/
     this.get('#/stories/:id/like', storyController.like);
+
+    /*Display All Story Likes*/
+    this.get('#/stories/:id/likes', storyController.getLikes);
 });
 
 (() => {

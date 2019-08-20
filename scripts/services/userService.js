@@ -10,12 +10,11 @@ const userService = function(){
             gender: params.gender
         }
 
-        const auth = btoa(`${storage.appKey}:${storage.appSecret}`);
-        const authString = `Basic ${auth}`;
+        storage.saveUserBasicCredentials(user.username, user.password);
 
         const headers = {
             headers: {
-                Authorization: authString
+                Authorization: storage.getUserBasicCredentials()
             },
             body: JSON.stringify(user)
         };
@@ -26,12 +25,11 @@ const userService = function(){
     const login = function(params){
         const url = baseUrl + '/login';
 
-        const auth = btoa(`${params.username}:${params.password}`);
-        const authString = `Basic ${auth}`;
+        storage.saveUserBasicCredentials(params.username, params.password);
 
         const headers = {
             headers: {
-                Authorization: authString
+                Authorization: storage.getUserBasicCredentials()
             },
             body: JSON.stringify({...params})
         };
@@ -64,10 +62,28 @@ const userService = function(){
         return requester.put(url, headers);
     }
 
+    const getUserDataFromId = async function(userId){
+        const url = baseUrl + `/${userId}`;
+        const headers = {
+            headers: {
+                Authorization: storage.getUserBasicCredentials()
+            }
+        }
+
+        let res = {};
+
+        await requester.get(url, headers)
+        .then(response => response.json())
+        .then(data => res = data);
+
+        return res;
+    }
+
     return {
         register,
         login,
         logout,
-        update
+        update,
+        getUserDataFromId
     };
 }();

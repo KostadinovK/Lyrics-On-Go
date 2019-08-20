@@ -1,0 +1,13 @@
+<section class="likes">
+    <ul>
+        {{#each likeViews}}
+        <li>
+            {{>likeView}}
+        </li>
+        {{else}}
+        <li>
+            <h2>No Likes Yet</h2>
+        </li>
+        {{/each}}
+    </ul>
+</section>

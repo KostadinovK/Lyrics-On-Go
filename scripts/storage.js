@@ -5,6 +5,8 @@ const storage = function(){
 
     const dataCollection = 'stories';
 
+    let userBasicCredentials = '';
+
     const saveData  = function(key, value){value
         localStorage.setItem(key, JSON.stringify(value));
     }
@@ -25,6 +27,16 @@ const storage = function(){
     const deleteUser = function(){
         deleteData('userInfo');
         deleteData('authToken');
+        deleteData('basicCredentials');
+    }
+
+    const saveUserBasicCredentials = function(username, password){
+        userBasicCredentials = `Basic ${btoa(`${username}:${password}`)}`;
+        saveData('basicCredentials', userBasicCredentials);
+    }
+
+    const getUserBasicCredentials = function(){
+        return JSON.parse(storage.getData('basicCredentials'));
     }
 
     return {
@@ -35,6 +47,8 @@ const storage = function(){
         getData,
         deleteData,
         saveUser,
-        deleteUser
+        deleteUser,
+        getUserBasicCredentials,
+        saveUserBasicCredentials
     };
 }();
