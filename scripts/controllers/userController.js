@@ -73,38 +73,15 @@ const userController = function(){
         const loggedIn = storage.getData('userInfo') !== null;
         context.loggedIn = loggedIn;
 
-        await storyService.loadAll()
-        .then(response => response.json())
-        .then(stories => {
-
-            context.username = JSON.parse(storage.getData('userInfo')).username;
-            context.posts = stories.filter(s => s._acl.creator === JSON.parse(storage.getData('userInfo'))._id);
-            context.storiesCount = context.posts.length;
-            context.gender = JSON.parse(storage.getData('userInfo')).gender;
-            context.isMale = helper.isGenderMale(context.gender);
-
-            for (let story of stories) {
-                story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
-                story.isCreatorMale = helper.isGenderMale(story.creatorGender);
-                story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo'))._id);
-                story.likesCount = story.likes.length;
-                story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
-                story.wordsCount = story.content.split(' ').length;
-            }
-        });
-
-        context.loadPartials({
-            header: './views/common/header.hbs',
-            footer: './views/common/footer.hbs',
-            userPosts: './views/user/userPosts.hbs',
-            profileInfo: './views/user/profileInfo.hbs',
-            post: './views/posts/post.hbs'
-        })
-        .then(function(){
-            this.partial('./views/user/profile.hbs');
-        });
+        userService.getProfile(JSON.parse(storage.getData('userInfo'))._id, context);
     }
 
+    const getUserProfile = function(context){
+        const loggedIn = storage.getData('userInfo') !== null;
+        context.loggedIn = loggedIn;
+
+        userService.getProfile(context.params.id, context);
+    }
     
 
     return {
@@ -113,6 +90,7 @@ const userController = function(){
         postRegister,
         postLogin,
         logout,
-        getProfile
+        getProfile,
+        getUserProfile
     };
 }();

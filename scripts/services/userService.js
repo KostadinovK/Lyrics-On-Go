@@ -62,6 +62,43 @@ const userService = function(){
         return requester.put(url, headers);
     }
 
+    const getProfile = async function(userId, context){
+
+        let {username, gender} = await getUserDataFromId(userId);
+        
+        await storyService.loadAll()
+        .then(response => response.json())
+        .then(stories => {
+
+            context.username = username
+            context.posts = stories.filter(s => s._acl.creator === userId);
+            context.storiesCount = context.posts.length;
+            context.gender = gender;
+            context.isMale = helper.isGenderMale(context.gender);
+
+            for (let story of stories) {
+                story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
+                story.isCreatorMale = helper.isGenderMale(story.creatorGender);
+                story.notLiked = !story.likes.includes(userId);
+                story.likesCount = story.likes.length;
+                story.creatorId = story._acl.creator;
+                story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
+                story.wordsCount = story.content.split(' ').length;
+            }
+        });
+        
+        context.loadPartials({
+            header: './views/common/header.hbs',
+            footer: './views/common/footer.hbs',
+            userPosts: './views/user/userPosts.hbs',
+            profileInfo: './views/user/profileInfo.hbs',
+            post: './views/posts/post.hbs'
+        })
+        .then(function(){
+            this.partial('./views/user/profile.hbs');
+        });
+    }
+
     const getUserDataFromId = async function(userId){
         const url = baseUrl + `/${userId}`;
         const headers = {
@@ -84,6 +121,7 @@ const userService = function(){
         login,
         logout,
         update,
+        getProfile,
         getUserDataFromId
     };
 }();

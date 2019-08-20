@@ -18,6 +18,9 @@ const app = Sammy('#main', function(){
     /*Profile*/
     this.get('#/profile', userController.getProfile);
 
+    /* Display user Profile*/
+    this.get('#/profile/:id', userController.getUserProfile);
+
     /*Create a Story */
     this.get('#/post', storyController.getCreate);
     this.post('#/post', storyController.postCreate);
@@ -40,6 +43,8 @@ const app = Sammy('#main', function(){
 
     /*Display All Story Likes*/
     this.get('#/stories/:id/likes', postDataController.getLikes);
+
+    
 });
 
 (() => {

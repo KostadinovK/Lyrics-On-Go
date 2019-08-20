@@ -26,6 +26,18 @@
     margin-bottom: 6rem;
 }
 
+.username{
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: var(--site-third-color);
+    font-weight: bold;
+}
+
+.username:hover{
+    font-size: 1.9rem;
+    color: var(--site-main-color);
+}
+
 .posts .avatar{
     overflow: hidden;
     max-width: 64px;
@@ -139,4 +151,8 @@
 
 .liked{
     color: red;
+}
+
+.likes:hover{
+    text-decoration: underline;
 }

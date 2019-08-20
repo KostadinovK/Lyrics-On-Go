@@ -13,7 +13,7 @@ const postDataController = function(){
         for (const id of story.likes) {
             let {gender, username} = await userService.getUserDataFromId(id);
             let isMale = helper.isGenderMale(gender);
-            context.likeViews.push({isMale, username});
+            context.likeViews.push({id, isMale, username});
         }
 
         context.loadPartials({

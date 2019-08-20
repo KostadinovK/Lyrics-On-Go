@@ -36,6 +36,7 @@ const storyController = function(){
             context.posts = stories.filter(s => s._acl.creator !== JSON.parse(storage.getData('userInfo'))._id);
             for (let story of stories) {
                 story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
+                story.creatorId = story._acl.creator;
                 story.isCreatorMale = helper.isGenderMale(story.creatorGender);
                 story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo'))._id);
                 story.likesCount = story.likes.length;
@@ -64,6 +65,7 @@ const storyController = function(){
             context.story = story;
             story.content = splitStoryContentInParagraphs(story);
             story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
+            story.creatorId = story._acl.creator;
             story.isCreatorMale = helper.isGenderMale(story.creatorGender);
             story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo'))._id);
             story.likesCount = story.likes.length;
