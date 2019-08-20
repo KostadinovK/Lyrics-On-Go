@@ -86,6 +86,12 @@
     align-items: center;
 }
 
+.likesAndComments{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+}
+
 .metadata p {
     flex: 0 0 50%;
     margin: 0 auto;
@@ -97,13 +103,17 @@
     flex: 0 0 100%;
 }
 
-.metadata i, .likes{
+.metadata i, .likes, .commentsCount{
     font-size: 2rem;
 }
 
 .metadata i{
     color: var(--site-red-color);
     margin-right: 2rem;
+}
+
+.metadata .comments i{
+    color: var(--site-main-color);
 }
 
 .metadata a{
@@ -153,6 +163,6 @@
     color: red;
 }
 
-.likes:hover{
+.likes:hover, .comments:hover{
     text-decoration: underline;
 }

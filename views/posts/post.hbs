@@ -17,7 +17,10 @@
     <p>{{wordsCount}} Words</p>
 </div>
 <div class="metadata">
-    <p><a href="#/stories/{{_id}}/like"><i class="{{#if notLiked}}far{{else}}fas{{/if}} fa-heart"></i></a> <a href="#/stories/{{_id}}/likes"><span class="likes">{{likesCount}}</span></a></p>
+    <div class="likesAndComments">
+        <p><a href="#/stories/{{_id}}/like"><i class="{{#if notLiked}}far{{else}}fas{{/if}} fa-heart"></i></a> <a href="#/stories/{{_id}}/likes"><span class="likes">{{likesCount}}</span></a></p>
+        <p class="comments"><a href=""><i class="far fa-comment-alt"></i><span class="commentsCount">{{commentsCount}}0</span></a></p>
+    </div>
     <p class="time">{{timeAgo}}</p>
 </div>
 {{#if isCreator}}
