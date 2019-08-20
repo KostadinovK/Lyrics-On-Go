@@ -82,6 +82,7 @@ const userService = function(){
                 story.notLiked = !story.likes.includes(userId);
                 story.likesCount = story.likes.length;
                 story.creatorId = story._acl.creator;
+                story.commentsCount = story.comments.length;
                 story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
                 story.wordsCount = story.content.split(' ').length;
             }

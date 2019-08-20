@@ -42,6 +42,7 @@ const storyController = function(){
                 story.likesCount = story.likes.length;
                 story.timeAgo = helper.calculateDateDifference(story.date, helper.getCurrentDate()) + ' ago';
                 story.wordsCount = story.content.split(' ').length;
+                story.commentsCount = story.comments.length;
             }
         });
 
@@ -66,6 +67,7 @@ const storyController = function(){
             story.content = splitStoryContentInParagraphs(story);
             story.isCreator = story._acl.creator === JSON.parse(storage.getData('userInfo'))._id;
             story.creatorId = story._acl.creator;
+            story.commentsCount = story.comments.length;
             story.isCreatorMale = helper.isGenderMale(story.creatorGender);
             story.notLiked = !story.likes.includes(JSON.parse(storage.getData('userInfo'))._id);
             story.likesCount = story.likes.length;
@@ -96,7 +98,10 @@ const storyController = function(){
 
         await storyService.loadStory(context.params.id)
         .then(response => response.json())
-        .then(story => context.story = story);
+        .then(story => {
+            context.story = story;
+            storage.saveData('storyComments', story.comments);
+        });
     
         context.loadPartials({
             header: './views/common/header.hbs',
@@ -112,11 +117,13 @@ const storyController = function(){
             title: context.params.title,
             content: context.params.content,
             likes: helper.formatStoryLikesString(context.params.likes),
+            comments: JSON.parse(storage.getData('storyComments')),
             date: context.params.date,
             creatorUsername: context.params.username,
             creatorGender: context.params.gender
         }
-       
+    
+        storage.deleteData('storyComments');
         storyService.edit(context.params.id, story)
         .then(response => response.json())
         .then(data => {

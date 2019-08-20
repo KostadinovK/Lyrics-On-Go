@@ -44,6 +44,8 @@ const app = Sammy('#main', function(){
     /*Display All Story Likes*/
     this.get('#/stories/:id/likes', postDataController.getLikes);
 
+    /*Display All Story Comments*/
+    this.get('#/stories/:id/comments', postDataController.getComments);
     
 });
 

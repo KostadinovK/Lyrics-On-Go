@@ -1,0 +1,22 @@
+{{>header}}
+<section class="comments">
+    <h2>Comments</h2>
+    <ul>
+        {{#each commentViews}}
+        <li>
+            {{>commentView}}
+        </li>
+        {{else}}
+        <li>
+            <h2>No Comments Yet</h2>
+        </li>
+        {{/each}}
+    </ul>
+    <form method="POST" action="#/stories/{{id}}/comment">
+        <p>
+            <input type="text" name="comment">
+            <input type="submit" value="Comment">
+        </p>
+    </form>
+</section>
+{{>footer}}
