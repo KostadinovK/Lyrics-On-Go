@@ -50,6 +50,12 @@
     height: auto;
 }
 
+.post{
+    border-top: 2px solid var(--site-main-color);
+    border-bottom: 2px solid var(--site-main-color);
+    padding: 2rem 0;
+}
+
 .post .header, .post .content, .post .metadata{
     display: flex;
     align-items: center;
@@ -109,7 +115,7 @@
 
 .metadata i{
     color: var(--site-red-color);
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .metadata .comments i{
