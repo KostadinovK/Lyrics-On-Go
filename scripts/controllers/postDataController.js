@@ -1,5 +1,7 @@
 const postDataController = function(){
+    
     const getLikes = async function(context){
+        context.loggedIn = storage.getData('userInfo') !== null;
         let story = {};
 
         await storyService.loadStory(context.params.id)
@@ -15,6 +17,8 @@ const postDataController = function(){
         }
 
         context.loadPartials({
+            header: './views/common/header.hbs',
+            footer: './views/common/footer.hbs',
             likeView: './views/postData/likeView.hbs'
         }).then(function(){
             this.partial('./views/postData/likes.hbs');

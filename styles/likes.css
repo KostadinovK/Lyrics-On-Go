@@ -1,0 +1,54 @@
+section.likes{
+    width: 60%;
+    margin: 6rem auto;
+}
+
+section.likes h2{
+    text-align: center;
+    color: var(--site-main-color);
+    margin-bottom: 4rem;
+    font-size: 1.4em;
+}
+
+section.likes ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.likes ul li{
+    list-style: none;
+    flex: 0 0 100%;
+   
+}
+
+.user{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+}
+
+section.likes ul li:not(:last-child){
+    margin-bottom: 2rem;
+}
+
+.likes .avatar{
+    display: block;
+    overflow: hidden;
+    grid-column: 1 / span 1;
+}
+
+.likes .avatar img{
+    display: block;
+    max-width: 64px;
+    max-height: 64px;
+    margin: 0 auto;
+}
+
+.likes .usernameWrapper{
+    grid-column: 2 / span 1;
+}
+
+.likes a{
+    text-decoration: none;
+    color: var(--site-third-color);
+}
