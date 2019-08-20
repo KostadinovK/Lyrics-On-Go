@@ -46,6 +46,9 @@ const app = Sammy('#main', function(){
 
     /*Display All Story Comments*/
     this.get('#/stories/:id/comments', postDataController.getComments);
+
+    /*Comment a Story*/
+    this.post('#/stories/:id/comment', postDataController.postComment);
     
 });
 

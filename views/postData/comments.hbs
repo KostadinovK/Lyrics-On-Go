@@ -7,12 +7,12 @@
             {{>commentView}}
         </li>
         {{else}}
-        <li>
+        <li class="noComments">
             <h2>No Comments Yet</h2>
         </li>
         {{/each}}
     </ul>
-    <form>
+    <form action="#/stories/{{id}}/comment" method="POST">
         <p>
             <input type="text" name="comment" id="comment" placeholder="Write a comment">
             <input type="submit" id="submit" value="Comment">

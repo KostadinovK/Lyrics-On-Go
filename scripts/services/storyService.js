@@ -23,7 +23,8 @@ const storyService = function(){
             likes: [],
             date: helper.getCurrentDate(),
             creatorUsername: JSON.parse(storage.getData('userInfo')).username,
-            creatorGender: JSON.parse(storage.getData('userInfo')).gender
+            creatorGender: JSON.parse(storage.getData('userInfo')).gender,
+            comments: []
         }
 
         const headers = {
