@@ -1,0 +1,79 @@
+section.comments{
+    width: 60%;
+    margin: 4rem auto;
+}
+
+section.comments h2{
+    text-align: center;
+    color: var(--site-main-color);
+    margin-bottom: 4rem;
+    font-size: 3rem;
+}
+
+section.comments ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 6rem;
+}
+
+section.comments ul li{
+    list-style: none;
+    flex: 0 0 100%;
+    border-top: 2px solid var(--site-main-color);
+    border-bottom: 2px solid var(--site-main-color);
+    border-radius: 20px;
+}
+
+section.comments ul li:not(:last-child){
+    margin-bottom: 4rem;
+}
+
+.comments .avatar{
+    overflow: hidden;
+}
+
+.comments .avatar img{
+    max-height: 64px;
+    max-width: 64px;
+    display: block;
+}
+
+.user-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.username{
+    margin-left: 2rem;
+}
+
+.comment{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.comments form{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.comments form p{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.comments form input{
+    margin: 0;
+    padding: 0;
+    padding: 1rem;
+}
+
+.comments form input[type="text"]{
+    flex: 0 0 80%;
+}
+
+.comments form input[type="submit"]{
+    flex: 0 0 15%;
+}

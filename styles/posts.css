@@ -169,6 +169,6 @@
     color: red;
 }
 
-.likes:hover, .comments:hover{
+span.likes:hover, span.comments:hover{
     text-decoration: underline;
 }
