@@ -45,6 +45,10 @@
     flex: 0 0 100%;
 }
 
+.commentsCount:hover{
+    text-decoration: underline;
+}
+
 @media (max-width: 900px) {
     .post-details, .controls{
         width: 90%;

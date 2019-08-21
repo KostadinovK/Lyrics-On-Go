@@ -47,3 +47,9 @@
     font-size: 1.4rem;
     color: var(--site-main-color);
 }
+
+@media (max-width: 900px) {
+    .profile-info{
+        width: 90%;
+    }
+}

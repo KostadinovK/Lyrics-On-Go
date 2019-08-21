@@ -78,3 +78,13 @@ section.comments ul li:not(:last-child){
 .comments form input[type="submit"]{
     flex: 0 0 15%;
 }
+
+@media (max-width: 900px) {
+    section.comments{
+        width: 90%;
+    }
+
+    .comments form input[type="text"]{
+        flex: 0 0 70%;
+    }
+}

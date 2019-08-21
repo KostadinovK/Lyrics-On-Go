@@ -52,3 +52,13 @@ section.likes ul li:not(:last-child){
     text-decoration: none;
     color: var(--site-third-color);
 }
+
+@media (max-width: 900px) {
+    section.likes{
+        width: 90%;
+    }
+
+    .user{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
