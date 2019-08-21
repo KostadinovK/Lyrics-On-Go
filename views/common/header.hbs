@@ -1,6 +1,9 @@
 <header class="site-header">
     <a href="#/home" class="logo">Story-On-Go</a>
-    <nav >
+    <input type="checkbox" name="toggle" id="toggle" class="nav-toggle">
+    <nav>
+        <label for="toggle"><span class="close">X Close </span><span class="open"><i class="fas fa-bars"></i>
+            Menu</span></label>
         <ul {{#if loggedIn}}{{else}} class="notLoggedIn" {{/if}}>
             {{#if loggedIn}}
             <li><a href="#/feed"><i class="fas fa-rss"></i> Feed</a></li>

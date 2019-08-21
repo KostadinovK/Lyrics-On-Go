@@ -12,6 +12,20 @@
     opacity: 0;
 }
 
+.site-header label{
+    display: none;
+}
+
+.site-header label i, .site-header label span{
+    color: var(--site-second-color);
+    font-size: 2rem;
+}
+
+.site-header>input{
+    opacity: 0;
+    pointer-events: none;
+}
+
 nav{
     flex: 0 0 60%;
     display: flex;
@@ -43,6 +57,7 @@ nav ul li{
 
 .authentication{
     flex: 0 0 50%;
+    opacity: 0;
 }
 
 nav ul li a{
@@ -62,3 +77,86 @@ nav ul li a:after{
     opacity: 0;
 }
 
+@media (max-width: 900px) {
+    .site-header{
+        flex-wrap: wrap;
+    }
+
+    .logo{
+        flex: 1 1 100%;
+        margin-right: 0;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    nav{
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+    }
+
+    .notLoggedIn{
+        flex: 1 1 100%;
+    }
+
+    nav ul li{
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        flex: 1 1 100%;
+    }
+
+    nav ul li a{
+        font-size: 1.8rem;
+        flex: 1 1 100%;
+        border: 1px solid var(--site-second-color);
+        border-radius: 10px;
+        opacity: 0;
+    }
+
+    nav ul li:first-child{
+        margin-top: 1rem;
+    }
+
+    nav ul li:not(:last-child){
+        margin-bottom: 1rem;
+    }
+
+    .site-header label{
+        display: block;
+    }
+
+    input + nav ul{
+        display: none;
+    }
+
+    input + nav label .open{
+        display: inline;
+        font-weight: bold;
+    }
+
+    input + nav label .close{
+        display: none;
+    }
+
+    input:checked + nav label .close{
+        display: inline;
+        font-weight: bold;
+    }
+
+    input:checked + nav label .open{
+        display: none;
+    }
+
+    input:checked + nav a{
+        padding: 1rem 0;
+    }
+
+    input:checked + nav ul{
+        display: block;
+        border-top: 2px solid var(--site-second-color);
+		border-bottom: 2px solid var(--site-second-color);
+    }
+}
