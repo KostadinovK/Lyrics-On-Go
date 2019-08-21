@@ -172,3 +172,17 @@
 span.likes:hover, span.comments:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 900px) {
+    .posts{
+        width: 90%;
+    }
+
+    .content{
+        margin-top: 2rem;
+    }
+
+    .content a{
+        flex: 0 0 100%;
+    }
+}
