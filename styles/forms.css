@@ -12,6 +12,7 @@ form h2{
 
 form i{
     color: var(--site-main-color);
+    font-size: 1.5rem;
 }
 
 form p{
