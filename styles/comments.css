@@ -44,7 +44,7 @@ section.comments ul li:not(:last-child){
     align-items: center;
 }
 
-.username{
+section.comments .username{
     margin-left: 2rem;
 }
 
