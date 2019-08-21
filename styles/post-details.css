@@ -44,3 +44,9 @@
     font-style: italic;
     flex: 0 0 100%;
 }
+
+@media (max-width: 900px) {
+    .post-details, .controls{
+        width: 90%;
+    }
+}
