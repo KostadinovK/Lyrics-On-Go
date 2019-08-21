@@ -98,3 +98,9 @@ form input[type="submit"]:hover{
 .invisible{
     display: none;
 }
+
+@media (max-width: 900px) {
+    form{
+        width: 90%;
+    }
+}
