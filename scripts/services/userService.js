@@ -4,17 +4,21 @@ const userService = function(){
 
     const register = function(params){
         const url = baseUrl;
+        
         let user = {
             username: params.username,
             password: params.password,
             gender: params.gender
         }
-
+    
         storage.saveUserBasicCredentials(user.username, user.password);
+
+        let auth = btoa(`${storage.appKey}:${storage.appSecret}`);
+        let authString = `Basic ${auth}`;
 
         const headers = {
             headers: {
-                Authorization: storage.getUserBasicCredentials()
+                Authorization: authString
             },
             body: JSON.stringify(user)
         };
