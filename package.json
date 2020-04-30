@@ -19,7 +19,7 @@
   "homepage": "https://github.com/KostadinovK/Story-On-Go#readme",
   "dependencies": {
     "handlebars": "^4.1.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "sammy": "^0.7.6"
   }
 }
