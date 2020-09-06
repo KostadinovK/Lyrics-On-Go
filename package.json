@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/KostadinovK/Story-On-Go#readme",
   "dependencies": {
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.5.3",
     "jquery": "^3.4.1",
     "sammy": "^0.7.6"
   }
